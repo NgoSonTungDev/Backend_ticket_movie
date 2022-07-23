@@ -11,9 +11,7 @@ const CommentRouter = require("./routes/cmt");
 const CartRouter = require("./routes/cart");
 const HistoryRouter = require("./routes/history");
 const TotalRouter = require("./routes/total");
-
-
-
+const PORT = 5000
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
@@ -22,7 +20,7 @@ app.use(morgan("common"));
 
 dotenv.config();
 
-moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE, (err) => {
+moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE_FIX, (err) => {
   if (err) {
     console.log("Error : " + err);
   } else {
@@ -30,8 +28,8 @@ moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE, (err) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("server is running.....");
+app.listen(5000 || PORT, () => {
+  console.log(`server is running at local ${PORT} .....`);
 });
 
 app.use("/api/auth", authRouter);

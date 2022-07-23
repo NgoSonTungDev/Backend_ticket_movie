@@ -29,14 +29,14 @@ const userShema = new mongoose.Schema(
 );
 
 const CartAccountUSer = new mongoose.Schema({
-  idmovie:{
+  idmovie: {
     type: String,
     required: true,
   },
   nameMovie: {
     type: String,
     required: true,
-    unique:true
+    unique: true,
   },
   price: {
     type: Number,
@@ -60,45 +60,59 @@ const CartAccountUSer = new mongoose.Schema({
   },
 });
 
-const HistoryAccountUSer = new mongoose.Schema({
-  idmovie:{
-    type: String,
-    required: true,
+const HistoryAccountUSer = new mongoose.Schema(
+  {
+    codeOrders: {
+      type: Number,
+      required: true,
+    },
+    idmovie: {
+      type: String,
+      required: true,
+    },
+    nameMovie: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    showtime: {
+      type: String,
+      required: true,
+    },
+    author: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+    Category: {
+      type: String,
+      required: true,
+    },
+    total: {
+      type: Number,
+      required: true,
+    },
+    nameUser: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      required: true,
+    },
+    AccountUSer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "AccountUSers",
+    },
   },
-  nameMovie: {
-    type: String,
-    required: true,
-    unique:true
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  showtime: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  amount: {
-    type: Number,
-    required: true,
-  },
-  Category: {
-    type: String,
-    required: true,
-  },
-  total: {
-    type: String,
-    required: true,
-  },
-  AccountUSer: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "AccountUSers",
-  },
-});
+  { timestamps: true }
+);
 
 const TicketMovie = new mongoose.Schema({
   namemovie: {
@@ -142,6 +156,10 @@ const TicketMovie = new mongoose.Schema({
     type: String,
     required: true,
   },
+  seats: {
+    type: Number,
+    required: true,
+  },
   commment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comments" }],
 });
 
@@ -178,7 +196,7 @@ const consolidation = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    price:{
+    price: {
       type: Number,
       required: true,
     },
