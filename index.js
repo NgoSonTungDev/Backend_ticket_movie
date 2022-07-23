@@ -28,9 +28,8 @@ moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE_FIX, (err) => {
   }
 });
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => {
-  console.log(`server is running at local ${PORT} .....`);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 app.use("/api/auth", authRouter);
