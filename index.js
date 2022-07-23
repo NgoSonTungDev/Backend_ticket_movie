@@ -28,10 +28,6 @@ moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE_FIX, (err) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
-
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/movie", movieRouter);
@@ -40,6 +36,9 @@ app.use("/api/cart", CartRouter);
 app.use("/api/Historybought", HistoryRouter);
 app.use("/api/TotalOrder", TotalRouter);
 
+app.listen((process.env.PORT || 5000), function(){
+  console.log('listening on *:5000');
+});
 
 
 
