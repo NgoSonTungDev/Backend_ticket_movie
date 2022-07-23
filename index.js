@@ -11,7 +11,7 @@ const CommentRouter = require("./routes/cmt");
 const CartRouter = require("./routes/cart");
 const HistoryRouter = require("./routes/history");
 const TotalRouter = require("./routes/total");
-const PORT = 5000
+
 const app = express();
 app.use(cors());
 app.use(bodyparser.json());
@@ -28,7 +28,8 @@ moongoose.connect(process.env.MOOGODB_CONNECT_DATABASE_FIX, (err) => {
   }
 });
 
-app.listen(5000 || PORT, () => {
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => {
   console.log(`server is running at local ${PORT} .....`);
 });
 
