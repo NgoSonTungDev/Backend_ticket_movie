@@ -1,8 +1,8 @@
 const commentController = require("../controllers/commentController")
 const router = require("express").Router();
 
-router.post("/add-comment",commentController.addCmt)
-router.get("/all-comment",commentController.GetAllCmt)
+router.post("/addcomment",commentController.addCmt)
+router.get("/allcomment",commentController.GetAllCmt)
 router.delete("/:id",commentController.Deletecmt)
 
 

@@ -1,7 +1,7 @@
 const userController = require("../controllers/userControllers");
 const routes = require("express").Router();
 
-routes.get("/all-user", userController.getAllUser);
+routes.get("/alluser", userController.getAllUser);
 
 routes.get("/:id", userController.getAnUser);
 
